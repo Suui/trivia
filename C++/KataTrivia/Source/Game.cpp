@@ -142,6 +142,7 @@ void Game::ChangePlayer()
 	if (currentPlayer == players.size()) currentPlayer = 0;
 }
 
+
 bool Game::wasCorrectlyAnswered()
 {
 	if (inPenaltyBox[currentPlayer])
@@ -198,5 +199,5 @@ bool Game::wrongAnswer()
 
 bool Game::didPlayerWin()
 {
-	return (purses[currentPlayer] == 5);
+	return (purses[currentPlayer] == 6);
 }

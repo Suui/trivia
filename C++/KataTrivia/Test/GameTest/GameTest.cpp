@@ -1,5 +1,6 @@
 #include "../TestRunner/catch.hpp"
 #include "../../Source/Game.h"
+#include "../../Source/GameRunner.h"
 
 /**
 *	Notes on the initial functionality
@@ -49,18 +50,20 @@ TEST_CASE("Trivia Game Should")
 		CHECK(testGame.isPlayable() == true);
 	}
 
-	SECTION("Have a winner if he gets 5 gold coins (5 correct answers)")
+	SECTION("Have a winner if he gets 6 gold coins (6 correct answers)")
 	{
 		testGame.add("Angelo");
 		testGame.add("Dani");
+		CHECK(testGame.wasCorrectlyAnswered() == false);
 		
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 9; i++)
 			testGame.wasCorrectlyAnswered();
+		
+		CHECK(testGame.wasCorrectlyAnswered() == true);
+	}
 
-		CHECK(testGame.didPlayerWin() == false);
-
-		testGame.wasCorrectlyAnswered();
-		testGame.ChangePlayer();
-		CHECK(testGame.didPlayerWin() == true);
+	SECTION("Stop execution if a player gets 6 gold coins")
+	{
+		
 	}
 }
