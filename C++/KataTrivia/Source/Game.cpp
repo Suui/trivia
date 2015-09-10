@@ -66,7 +66,7 @@ void Game::roll(int roll)
 
 	if (inPenaltyBox[currentPlayer])
 	{
-		if (roll % 2 != 0)
+		if (roll % 2 != 0)	// Odd number
 		{
 			isGettingOutOfPenaltyBox = true;
 
@@ -78,7 +78,7 @@ void Game::roll(int roll)
 			std::cout << "The category is " << currentCategory() << std::endl;
 			askQuestion();
 		}
-		else
+		else	// Pair number
 		{
 			std::cout << players[currentPlayer] << " is not getting out of the penalty box" << std::endl;
 			isGettingOutOfPenaltyBox = false;
@@ -87,7 +87,6 @@ void Game::roll(int roll)
 	}
 	else
 	{
-
 		places[currentPlayer] = places[currentPlayer] + roll;
 		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
@@ -95,7 +94,6 @@ void Game::roll(int roll)
 		std::cout << "The category is " << currentCategory() << std::endl;
 		askQuestion();
 	}
-
 }
 
 void Game::askQuestion()
@@ -137,6 +135,7 @@ std::string Game::currentCategory()
 	return "Rock";
 }
 
+
 bool Game::wasCorrectlyAnswered()
 {
 	if (inPenaltyBox[currentPlayer])
@@ -162,9 +161,6 @@ bool Game::wasCorrectlyAnswered()
 			if (currentPlayer == players.size()) currentPlayer = 0;
 			return true;
 		}
-
-
-
 	}
 	else
 	{

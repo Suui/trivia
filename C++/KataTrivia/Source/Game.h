@@ -9,7 +9,7 @@
 class Game
 {
 	int currentPlayer;
-
+	std::vector<std::string> players;
 
 	std::vector<int> places;
 	std::vector<int> purses;
@@ -19,7 +19,6 @@ class Game
 	std::list<std::string> scienceQuestions;
 	std::list<std::string> sportsQuestions;
 	std::list<std::string> rockQuestions;
-
 
 	bool isGettingOutOfPenaltyBox;
 
@@ -34,7 +33,6 @@ public:
 
 	// TODO: Should be private
 	std::list<std::string> popQuestions;
-	std::vector<std::string> players;
 
 	Game();
 
