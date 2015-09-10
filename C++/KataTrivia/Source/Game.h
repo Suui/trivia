@@ -26,13 +26,12 @@ class Game
 
 	std::string currentCategory();
 
-	bool didPlayerWin();
-
 
 public:
 
 	// TODO: Should be private
 	std::list<std::string> popQuestions;
+	bool didPlayerWin();
 
 	Game();
 
@@ -49,6 +48,8 @@ public:
 	bool wasCorrectlyAnswered();
 
 	bool wrongAnswer();
+
+	void ChangePlayer();
 };
 
 #endif /* GAME_H_ */

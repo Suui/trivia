@@ -49,4 +49,18 @@ TEST_CASE("Trivia Game Should")
 		CHECK(testGame.isPlayable() == true);
 	}
 
+	SECTION("Have a winner if he gets 5 gold coins (5 correct answers)")
+	{
+		testGame.add("Angelo");
+		testGame.add("Dani");
+		
+		for (int i = 0; i < 8; i++)
+			testGame.wasCorrectlyAnswered();
+
+		CHECK(testGame.didPlayerWin() == false);
+
+		testGame.wasCorrectlyAnswered();
+		testGame.ChangePlayer();
+		CHECK(testGame.didPlayerWin() == true);
+	}
 }
