@@ -12,7 +12,6 @@
 *	The category of the question for the player is determined by his location,
 *		which is the places array, which gets the roll added % 12
 *
-*	I understand the maximum number of players is 6 as the places and purses array have positions
 *	The minimum number of players is 2 as it is stated in isPlayable(), but not used by default
 *
 *	POSSIBLE TESTS
@@ -30,4 +29,13 @@
 TEST_CASE("Trivia game should")
 {
 	Game testGame;
+
+	SECTION("Have two players after adding them")
+	{
+		testGame.add("Player_01");
+		testGame.add("Player_02");
+		CHECK(testGame.howManyPlayers() == 2);
+	}
+
+
 }
