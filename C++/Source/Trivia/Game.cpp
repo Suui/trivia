@@ -9,8 +9,7 @@ Game::Game() : currentPlayer(0)
 {
 	for (int i = 0; i < 50; i++)
 	{
-
-		ostringstream oss (ostringstream::out);
+		ostringstream oss(ostringstream::out);
 		oss << "Pop Question " << i;
 
 		popQuestions.push_back(oss.str());
@@ -39,7 +38,8 @@ bool Game::isPlayable()
 	return (howManyPlayers() >= 2);
 }
 
-bool Game::add(string playerName){
+bool Game::add(string playerName)
+{
 	players.push_back(playerName);
 	places[howManyPlayers()] = 0;
 	purses[howManyPlayers()] = 0;
@@ -79,11 +79,9 @@ void Game::roll(int roll)
 			cout << players[currentPlayer] << " is not getting out of the penalty box" << endl;
 			isGettingOutOfPenaltyBox = false;
 		}
-
 	}
 	else
 	{
-
 		places[currentPlayer] = places[currentPlayer] + roll;
 		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
@@ -91,7 +89,6 @@ void Game::roll(int roll)
 		cout << "The category is " << currentCategory() << endl;
 		askQuestion();
 	}
-
 }
 
 void Game::askQuestion()
@@ -142,9 +139,9 @@ bool Game::wasCorrectlyAnswered()
 			cout << "Answer was correct!!!!" << endl;
 			purses[currentPlayer]++;
 			cout << players[currentPlayer]
-			     << " now has "
-			     << purses[currentPlayer]
-				<<  " Gold Coins." << endl;
+				<< " now has "
+				<< purses[currentPlayer]
+				<< " Gold Coins." << endl;
 
 			bool winner = didPlayerWin();
 			currentPlayer++;
@@ -158,18 +155,14 @@ bool Game::wasCorrectlyAnswered()
 			if (currentPlayer == players.size()) currentPlayer = 0;
 			return true;
 		}
-
-
-
 	}
 	else
 	{
-
 		cout << "Answer was corrent!!!!" << endl;
 		purses[currentPlayer]++;
 		cout << players[currentPlayer]
-				<< " now has "
-				<< purses[currentPlayer]
+			<< " now has "
+			<< purses[currentPlayer]
 			<< " Gold Coins." << endl;
 
 		bool winner = didPlayerWin();

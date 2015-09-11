@@ -13,7 +13,6 @@ int main()
 
 	do
 	{
-
 		aGame.roll(rand() % 5 + 1);
 
 		if (rand() % 9 == 7)
@@ -24,6 +23,6 @@ int main()
 		{
 			notAWinner = aGame.wasCorrectlyAnswered();
 		}
-	} while (notAWinner);
-
+	}
+	while (notAWinner);
 }
