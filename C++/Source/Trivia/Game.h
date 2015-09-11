@@ -8,7 +8,6 @@ using namespace std;
 
 class Game
 {
-private:
 	vector<string> players;
 
 	int places[6];
@@ -24,7 +23,13 @@ private:
 	int currentPlayer;
 	bool isGettingOutOfPenaltyBox;
 
+	void askQuestion();
+	string currentCategory();
+
+	bool didPlayerWin();
+
 public:
+
 	Game();
 	string createRockQuestion(int index);
 	bool isPlayable();
@@ -33,16 +38,8 @@ public:
 	int howManyPlayers();
 	void roll(int roll);
 
-private:
-	void askQuestion();
-	string currentCategory();
-
-public:
 	bool wasCorrectlyAnswered();
 	bool wrongAnswer();
-
-private:
-	bool didPlayerWin();
 };
 
 #endif /* GAME_H_ */
