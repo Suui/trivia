@@ -37,5 +37,15 @@ TEST_CASE("Trivia game should")
 		CHECK(testGame.howManyPlayers() == 2);
 	}
 
-
+	SECTION("Be playable with at least 2 players or more")
+	{
+		testGame.add("Player_01");
+		CHECK(testGame.isPlayable() == false);
+		
+		testGame.add("Player_02");
+		CHECK(testGame.isPlayable() == true);
+		
+		testGame.add("Player_03");
+		CHECK(testGame.isPlayable() == true);
+	}
 }
